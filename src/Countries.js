@@ -5,7 +5,6 @@ export default function Countries() {
   const FETCH_COUNTRIES = gql`
     {
       Country {
-        _id
         name
         capital
         area
@@ -17,10 +16,10 @@ export default function Countries() {
   const { loading, error, data } = useQuery(FETCH_COUNTRIES);
   if (loading) return <p>Loading...</p>;
   if (error) return <p> Error: {error} :( </p>;
-  return data.Country.map(({ currency, rate }) => (
-    <div key={_id}>
+  return data.Country.map( (country) => (
+    <div key={country.name}>
       <p>
-        {name} : {capital}
+        {country.name} : {country.capital}
       </p>
     </div>
   ));
