@@ -9,7 +9,6 @@ export default function Countries() {
         capital
         area
         population
-        # check the docs for more info
       }
     }
   `;
@@ -18,9 +17,9 @@ export default function Countries() {
   if (error) return <p> Error: {error} :( </p>;
   return data.Country.map( (country) => (
     <div key={country.name}>
-      <p>
+      <li>
         {country.name} : {country.capital}
-      </p>
+      </li>
     </div>
   ));
 }
