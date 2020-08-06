@@ -12,7 +12,7 @@ export default function Countries() {
       }
     }
   `;
-  const { loading, error, data } = useQuery(FETCH_COUNTRIES);
+  const { loading, error, data } = useQuery(FETCH_COUNTRIES, { pollInterval: 500, });
   if (loading) return <p className="text-center">Loading...</p>;
   if (error) return <p className="text-center"> Error: {error} :( </p>;
   return data.Country.map( (country) => (
